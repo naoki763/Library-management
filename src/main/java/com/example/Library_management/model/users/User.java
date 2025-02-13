@@ -1,10 +1,9 @@
-package com.example.Library_management.model;
+package com.example.Library_management.model.users;
 
 
+import com.example.Library_management.model.history.History;
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 @Entity
 @Data

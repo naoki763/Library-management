@@ -1,5 +1,7 @@
-package com.example.Library_management.model;
+package com.example.Library_management.model.history;
 
+import com.example.Library_management.model.books.Book;
+import com.example.Library_management.model.users.User;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.util.List;
