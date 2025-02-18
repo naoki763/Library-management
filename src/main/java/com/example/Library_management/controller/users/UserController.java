@@ -20,36 +20,36 @@ public class UserController {
         this.userService = userService;
     }
 
+    // 利用者一覧を取得
     @GetMapping("/get")
-    public ResponseEntity<List<User>> getUsers(){
+    public ResponseEntity<List<User>> getUsers() {
         List<User> user = userService.getALLUsers();
         return ResponseEntity.ok(user);
     }
 
+    //id毎にユーザデータを取得
     @GetMapping("/get/{id}")
-    public ResponseEntity<Optional<User>> getUsersById(@PathVariable long id){
+    public ResponseEntity<Optional<User>> getUserById(@PathVariable long id){
         Optional<User> user = userService.getUserById(id);
         return ResponseEntity.ok(user);
     }
-
+    //id毎にユーザデータを登録
     @PostMapping("/register")
-    public ResponseEntity<User> create(@RequestBody User userForm){
+    public ResponseEntity<String> create(@RequestBody User userForm){
         User user = userService.createUser(userForm);
-        return ResponseEntity.ok(user);
+        return ResponseEntity.status(200).body("登録が完了しました。");
     }
-
+    //id毎にユーザデータを更新
     @PutMapping("/edit/{id}")
-    public ResponseEntity<User> edit(@RequestBody User userForm, @PathVariable long id){
-
+    public ResponseEntity<String> edit(@RequestBody User userForm, @PathVariable long id){
         User user = userService.editUser(userForm, id);
-        return ResponseEntity.ok(user);
+        return ResponseEntity.status(200).body("更新が完了しました。");
     }
-
+    //id毎にユーザデータを削除
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<User> delete(@PathVariable long id){
-
+    public ResponseEntity<String> delete(@PathVariable long id){
         User user = userService.deleteUser(id);
-        return ResponseEntity.ok(user);
+        return ResponseEntity.status(200).body("削除が完了しました。");
     }
 
 
