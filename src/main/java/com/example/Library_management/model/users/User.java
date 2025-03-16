@@ -19,7 +19,7 @@ public class User {
     @Column(nullable = false, unique = true)
     private  String address;
 
-    @ManyToOne
+    @OneToMany(mappedBy = "user_id")
     History history;
 
 }

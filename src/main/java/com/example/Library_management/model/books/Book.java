@@ -25,7 +25,7 @@ public class Book {
     @Column(nullable = false)
     private  int stock;
 
-    @ManyToOne
+    @OneToMany(mappedBy = "book_id")
     History history;
 
 }
