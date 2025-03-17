@@ -4,6 +4,8 @@ import com.example.Library_management.model.history.History;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Data
 @Table(name = "books")
@@ -25,7 +27,7 @@ public class Book {
     @Column(nullable = false)
     private  int stock;
 
-    @OneToMany(mappedBy = "book_id")
-    History history;
+    @OneToMany(mappedBy = "book")
+    private List<History> history;
 
 }

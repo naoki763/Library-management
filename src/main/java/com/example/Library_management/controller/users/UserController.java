@@ -5,6 +5,7 @@ import com.example.Library_management.service.users.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,10 +22,15 @@ public class UserController {
     }
 
     // 利用者一覧を取得
+//    @GetMapping("/get")
+//    public ResponseEntity<List<User>> getUsers() {
+//        List<User> user = userService.getALLUsers();
+//        return ResponseEntity.ok(user);
+//    }
     @GetMapping("/get")
-    public ResponseEntity<List<User>> getUsers() {
-        List<User> user = userService.getALLUsers();
-        return ResponseEntity.ok(user);
+    public String getUsers(Model model) {
+        model.addAttribute("users", userService.getALLUsers());
+        return "users_list";
     }
 
     //id毎にユーザデータを取得

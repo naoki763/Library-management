@@ -17,10 +17,12 @@ public class History {
     private Long id;
 
     @ManyToOne
-    Long user_id;
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @ManyToOne
-    Long book_id;
+    @JoinColumn(name = "book_id")
+    private Book book;
 
     @Column(nullable = false)
     private LocalDateTime create_at;
